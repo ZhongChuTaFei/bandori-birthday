@@ -37,7 +37,7 @@ def send_message(msg):
     body = {
         "msgtype": "markdown",
         "markdown": {
-            "content": f"## 邦多利生日提醒\n{msg}"
+            "content": f"# 邦多利生日提醒\n{msg}"
         }
     }
     response = requests.post(WEBHOOK_URL, json=body)
