@@ -6,7 +6,7 @@
 
 ## ✨ 功能速览
 
-* **GitHub Actions 自动运行**：每日日本时间0点自动运行，无需额外服务器。
+* **GitHub Actions 自动运行**：~~每日日本时间0点自动运行，无需额外服务器。~~ 因延迟原因默认不启用 如需启用请前往 `.github/workflows/birthday.yml` 删除注释
 * **企业微信机器人兼容**：默认支持企业微信机器人消息格式。
 * **Webhook 安全管理**：Webhook URL 通过 GitHub Secrets 配置，确保安全。
 * **内置生日数据**：

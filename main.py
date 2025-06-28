@@ -30,7 +30,7 @@ def build_message(entry, readable_date):
         return f"现在是日本时间{readable_date}，{band}的{position}，**{role}**的生日，祝她生日快乐🎉！", role
     elif len(entry) == 5:
         name, role, band, position, date = entry
-        return f"今天是日本时间{readable_date}，{band}的{position}，{role}的声优**{name}**的生日，祝她生日快乐🎉！", name
+        return f"现在是日本时间{readable_date}，{band}的{position}，{role}的声优**{name}**的生日，祝她生日快乐🎉！", name
     return None, None
 
 def send_message(msg):

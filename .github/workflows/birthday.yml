@@ -1,9 +1,9 @@
 name: Birthday Reminder
 
 on:
-  schedule:
-    # 每天东京时间0点触发（UTC 15点）
-    - cron: "0 15 * * *"
+  # schedule:
+  #   # 每天东京时间0点触发（UTC 15点） 因Github Actions schedule延迟原因停用 如需启用请取消注释
+  #   - cron: "0 15 * * *"
   workflow_dispatch:
 
 jobs:
