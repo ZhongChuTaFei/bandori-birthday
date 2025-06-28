@@ -1,0 +1,27 @@
+name: Birthday Reminder
+
+on:
+  schedule:
+    # 每天东京时间0点触发（UTC 15点）
+    - cron: "0 15 * * *"
+  workflow_dispatch:
+
+jobs:
+  send_birthday_reminder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.10
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run birthday reminder
+        env:
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+        run: python main.py
