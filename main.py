@@ -22,15 +22,23 @@ def load_birthdays(file_path='birthdays.json'):
 def get_today_in_tokyo():
     tz_tokyo = pytz.timezone('Asia/Tokyo')
     dt = datetime.now(tz_tokyo)
-    return dt.strftime("%m-%d"), f"{int(dt.month)}月{int(dt.day)}日"
+    date_raw = dt.strftime("%m-%d")
+    readable_date = f"{int(dt.month)}月{int(dt.day)}日"
 
-def build_message(entry, readable_date):
+    if dt.minute == 0:
+        current_time = f"{dt.hour}点整"
+    else:
+        current_time = f"{dt.hour}点{dt.strftime('%M')}分"  # 分钟补零
+
+    return date_raw, readable_date, current_time
+
+def build_message(entry, readable_date, current_time):
     if len(entry) == 4:
         role, band, position, date = entry
-        return f"现在是日本时间{readable_date}，{band}的{position}，**{role}**的生日，祝她生日快乐🎉！", role
+        return f"现在是日本时间{readable_date}{current_time}，{readable_date}是{band}的{position}，**{role}**的生日，祝她生日快乐🎉！", role
     elif len(entry) == 5:
         name, role, band, position, date = entry
-        return f"现在是日本时间{readable_date}，{band}的{position}，{role}的声优**{name}**的生日，祝她生日快乐🎉！", name
+        return f"现在是日本时间{readable_date}{current_time}，{readable_date}是{band}的{position}，{role}的声优**{name}**的生日，祝她生日快乐🎉！", name
     return None, None
 
 def send_message(msg):
@@ -45,12 +53,12 @@ def send_message(msg):
 
 def main():
     birthdays = load_birthdays()
-    date_raw, readable_date = get_today_in_tokyo()
+    date_raw, readable_date, current_time = get_today_in_tokyo()
 
     for entry in birthdays:
         date = entry[-1]
         if date == date_raw:
-            msg, identifier = build_message(entry, readable_date)
+            msg, identifier = build_message(entry, readable_date, current_time)
             if msg:
                 send_message(msg)
                 logging.info(f"已发送 {identifier} 的生日祝贺")
