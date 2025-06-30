@@ -6,7 +6,7 @@
 
 ## ✨ 功能速览
 
-* **GitHub Actions 自动运行**：~~每日日本时间0点自动运行，无需额外服务器。~~ 因推送延迟原因默认不启用 如需启用请查看`部署步骤`第3步
+* **GitHub Actions 自动运行**：~~每日日本时间0点自动运行，无需额外服务器。~~ 因推送延迟原因默认不启用 如需启用请查看[部署步骤](https://github.com/ZhongChuTaFei/bandori-birthday?tab=readme-ov-file#%E9%83%A8%E7%BD%B2%E6%AD%A5%E9%AA%A4)中第3步
 * **企业微信机器人兼容**：默认支持企业微信机器人消息格式。
 * **Webhook 安全管理**：Webhook URL 通过 GitHub Secrets 配置，确保安全。
 * **内置生日数据**：
