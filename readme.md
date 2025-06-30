@@ -6,12 +6,12 @@
 
 ## ✨ 功能速览
 
-* **GitHub Actions 自动运行**：~~每日日本时间0点自动运行，无需额外服务器。~~ 因延迟原因默认不启用 如需启用请前往 `.github/workflows/birthday.yml` 删除注释
+* **GitHub Actions 自动运行**：~~每日日本时间0点自动运行，无需额外服务器。~~ 因推送延迟原因默认不启用 如需启用请查看`部署步骤`第3步
 * **企业微信机器人兼容**：默认支持企业微信机器人消息格式。
 * **Webhook 安全管理**：Webhook URL 通过 GitHub Secrets 配置，确保安全。
 * **内置生日数据**：
-    * 包含 **BanG Dream! 全部十个乐队** 的角色生日：Poppin'Party、Afterglow、Pastel*Palettes、Roselia、Hello, Happy World!、Morfonica、RAISE A SUILEN、MyGO!!!!!、Ave Mujica、梦限大MewType。
-    * 包含 **九个乐队的现任角色声优** 生日（不含梦限大MewType）。
+    * 包含 **BanG Dream! 全部十个乐队**的角色生日：Poppin'Party、Afterglow、Pastel*Palettes、Roselia、Hello, Happy World!、Morfonica、RAISE A SUILEN、MyGO!!!!!、Ave Mujica、梦限大MewType。
+    * 包含 **BanG Dream! 九个乐队的现任角色声优**生日（不含梦限大MewType）。
 
 ---
 
@@ -25,7 +25,8 @@
     * 点击 `New repository secret`。
     * **名称 (Name)**：`WEBHOOK_URL`
     * **值 (Value)**：填入您的**企业微信机器人 Webhook URL**。
-3.  **启用 GitHub Actions**：
+3.  **启用 GitHub Actions自动推送**：
+    * 前往 `.github/workflows/birthday.yml` 取消第4-6行注释（删除行前的`#`）
     * 进入您的 Fork 仓库的 `Actions` 选项卡。
     * 启用工作流。
 
